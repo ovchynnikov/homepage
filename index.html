@@ -16,6 +16,29 @@
     <title>Résumé</title>
     <link rel="stylesheet" href="https://binary-studio-academy.github.io/stage-2/assets/stylesheets/base.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .rotateimg180 {
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+            transform: rotate(180deg);
+            animation: move 4s infinite;
+        }
+        
+        #signature {
+            margin-top: -19px;
+        }
+        
+        @keyframes move {
+            from {
+                top: 0px;
+            }
+            to {
+                top: 300px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +49,7 @@
                     <div class="row">
                         <div class="three wide center aligned column">
                             <div class="avatar-wrapper">
-                                <object class="avatar" id="avatar" style="width: 160%;" data="assets\images\avatar.png" role="img" aria-label="My profile picture"></object>
+                                <object class="avatar" id="avatar" style="width: 160%;" data="assets/images/avatar.png" role="img" aria-label="My profile picture"></object>
                             </div>
                         </div>
                         <div class="thirteen wide column">
@@ -105,12 +128,10 @@
                                 </li>
                                 <li>
                                     <p><em>В 2015 г.</em></p>
-                                    <p>Вновь избран членом Палаты общин британского парламента от избирательного округа Аксбридж и Южный Райслип в Большом Лондоне.
-                                        <ul>
-
-                                            <li>В течение года продолжал выполнять обязанности мэра Лондона, совмещая две должности.</li>
-                                        </ul>
-                                    </p>
+                                    <p>Вновь избран членом Палаты общин британского парламента от избирательного округа Аксбридж и Южный Райслип в Большом Лондоне.</p>
+                                    <ul>
+                                        <li>В течение года продолжал выполнять обязанности мэра Лондона, совмещая две должности.</li>
+                                    </ul>
                                 </li>
                                 <li class="details">
                                     <input type="checkbox" id="other">
@@ -128,7 +149,6 @@
 
                             <h6>Back then</h6>
                             <ul class="timeline">
-
                                 <li>
                                     <p><em>В 2004 г.</em></p>
                                     <p>Был теневым министром по делам культуры.</p>
@@ -154,7 +174,7 @@
                                     <p>Начало работы в The Daily Telegraph.</p>
                                 </li>
                             </ul>
-                            <object class="signature" id="signature" style="width: 160%;" data="assets\images\signature.svg" role="img" aria-label="My signature"></object>
+                            <object class="signature" id="signature" style="width: 160%;" data="assets/images/signature.svg" role="img" aria-label="My signature"></object>
                         </div>
                         <div class="six wide column">
                             <section>
@@ -182,7 +202,6 @@
                                 <span class="nowrap">ASS-KISSERS</span>
                                 <span>INCOMPETENCE</span>
                                 <span>VODKA</span>
-                                </p>
                             </section>
                             <section>
                                 <h3>Dislikes&#x1f61e;</h3>
@@ -220,60 +239,37 @@
             </div>
         </article>
     </main>
+
+    <script>
+        document.getElementById("rain").addEventListener("click", function() {
+            this.childNodes[2].play();
+            setTimeout(function() {
+                document.getElementById("rain").childNodes[2].pause();
+            }, 7000)
+        });
+
+        setInterval(() => {
+            let element = document.getElementById("avatar");
+            element.classList.toggle("rotateimg180");
+        }, 4000);
+
+        const colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
+            '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
+            '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
+            '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
+            '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
+            '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
+            '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
+            '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
+            '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
+            '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'
+        ];
+
+        document.getElementById("border").addEventListener("click", function() {
+            let color = colorArray[Math.round((Math.random() * colorArray.length))]
+            document.getElementById("border").style.borderColor = color;
+        })
+    </script>
 </body>
 
 </html>
-
-<script>
-    document.getElementById("rain").addEventListener("click", function() {
-        this.childNodes[2].play();
-        setTimeout(function() {
-            document.getElementById("rain").childNodes[2].pause();
-        }, 7000)
-    });
-
-    setInterval(() => {
-        let element = document.getElementById("avatar");
-        element.classList.toggle("rotateimg180");
-    }, 4000);
-
-    const colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
-        '#E6B333', '#3366E6', '#999966', '#99FF99', '#B34D4D',
-        '#80B300', '#809900', '#E6B3B3', '#6680B3', '#66991A',
-        '#FF99E6', '#CCFF1A', '#FF1A66', '#E6331A', '#33FFCC',
-        '#66994D', '#B366CC', '#4D8000', '#B33300', '#CC80CC',
-        '#66664D', '#991AFF', '#E666FF', '#4DB3FF', '#1AB399',
-        '#E666B3', '#33991A', '#CC9999', '#B3B31A', '#00E680',
-        '#4D8066', '#809980', '#E6FF80', '#1AFF33', '#999933',
-        '#FF3380', '#CCCC00', '#66E64D', '#4D80CC', '#9900B3',
-        '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF'
-    ];
-
-    document.getElementById("border").addEventListener("click", function() {
-        let color = colorArray[Math.round((Math.random() * colorArray.length))]
-        document.getElementById("border").style.borderColor = color;
-    })
-</script>
-<style>
-    .rotateimg180 {
-        -webkit-transform: rotate(180deg);
-        -moz-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-        -o-transform: rotate(180deg);
-        transform: rotate(180deg);
-        animation: move 4s infinite;
-    }
-    
-    #signature {
-        margin-top: -19px;
-    }
-    
-    @keyframes move {
-        from {
-            top: 0px;
-        }
-        to {
-            top: 300px;
-        }
-    }
-</style>
